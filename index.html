@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ai Universe</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+
+
+</head>
+
+<body>
+  <header>
+    <h1 class=" text-3xl font-bold text-center my-10">AI Universe Hub</h1>
+    <button
+      class="text-white text-xl font-semibold bg-red-600 px-4 py-3 rounded-md block mx-auto mb-10 md:text-sm md:px-3 md:py-2">Sort
+      By Date</button>
+  </header>
+  <section id="card-container" class="space-y-6">
+    <div id="card-item" class="h-[500px] w-96 mx-auto rounded-md border-black border-2 shadow-2xl">
+      <img src="./image/arrow-circle.png" alt="" class="h-1/2 mx-auto ">
+      <h3 class="pl-4 text-xl font-bold">Features</h3>
+      <ul class="pl-4 list-decimal">
+        <li>1.asdjfkasjf</li>
+        <li>1.asdjfkasjf</li>
+        <li>1.asdjfkasjf</li>
+        
+      </ul>
+      <hr class="w-3/4 border-black mx-auto my-6">
+      
+      <div class="flex justify-between px-4 items-center">
+        <div class="space-y-2">
+          <h3 class=" text-xl font-bold">ChatGPT</h3>
+          <div class="flex gap-2">
+            <img src="./image/calendar.png" alt="" class="h-6 w-6"><p class="text-sm">1/11/2022</p>
+          </div>
+        </div>
+        <img data-modal-target="staticModal" data-modal-toggle="staticModal" src="./image/arrow-circle.png" alt="" class="h-9 w-9" > 
+
+
+        <!-- modal part   -->
+
+
+        <div id="staticModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+          <div class="relative w-full h-full max-w-2xl md:h-auto">
+              <!-- Modal content -->
+              <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                  <!-- Modal header -->
+                  <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="staticModal">
+                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
+                  </button>
+                      
+                  </div>
+                  <!-- Modal body -->
+                  <div class="p-6 space-y-6">
+                      <div class="h-32 w-full border-2 border-black bg-white">
+
+                      </div>
+                      <div class="h-32 w-full border-2 border-black bg-white">
+
+                      </div>
+                      
+                  </div>
+                
+                  
+              </div>
+          </div>
+      </div>
+        
+      </div>
+
+    </div>
+  </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+  <script src="./ai_hub.js"></script>
+</body>
+
+</html>
