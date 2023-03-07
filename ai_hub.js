@@ -1,47 +1,47 @@
 // api call 
-async function getData(dataLimit,click) {
+async function getData(dataLimit, click) {
   try {
     const response = await fetch('https://openapi.programming-hero.com/api/ai/tools');
     let data = await response.json();
-    if(click){
-     data = data.data.tools.sort((a,b) =>  new Date(b.published_in) - new Date(a.published_in));
-      showAiUniverseData(data,dataLimit);
-     
+    if (click) {
+      data = data.data.tools.sort((a, b) => new Date(b.published_in) - new Date(a.published_in));
+      showAiUniverseData(data, dataLimit);
+
     }
-    else{
-      showAiUniverseData(data.data.tools,dataLimit);
+    else {
+      showAiUniverseData(data.data.tools, dataLimit);
     }
-     
-  
+
+
   } catch (error) {
     console.error(error);
   }
 }
-  // show data 
-  const showAiUniverseData =(data, dataLimit)=>{
-    const container = document.getElementById("ai-universe");
-    const div = document.createElement("div");
-    const showMore = document.getElementById("see-more-btn");
-    container.textContent = '';
- 
-  if(data.length > 6 && dataLimit > 2 ){
+// show data 
+const showAiUniverseData = (data, dataLimit) => {
+  const container = document.getElementById("ai-universe");
+  const div = document.createElement("div");
+  const showMore = document.getElementById("see-more-btn");
+  container.textContent = '';
+
+  if (data.length > 6 && dataLimit > 2) {
     data = data.slice(0, 6);
     showMore.classList.remove('d-none');
   }
-  else{
+  else {
     showMore.classList.add('d-none')
   }
 
-    data.forEach((data) => {
-    
-        let number=1;
-        let features ="" ;
-        for(let i=0; i<data.features.length ;i++){
-          features += `${number++}. ${data.features[i]}<br>`;
-        }
-        const div = document.createElement("div");
-        div.classList.add("col");
-        div.innerHTML = `
+  data.forEach((data) => {
+
+    let number = 1;
+    let features = "";
+    for (let i = 0; i < data.features.length; i++) {
+      features += `${number++}. ${data.features[i]}<br>`;
+    }
+    const div = document.createElement("div");
+    div.classList.add("col");
+    div.innerHTML = `
         <div class="card  p-3 h-100 ">
         <div class=" rounded card-img-top overflow-hidden ">
         <img style=' height: 200px;' src="${data.image}" class="card-img-top rounded-xl img-fluid" alt="...">
@@ -61,7 +61,64 @@ async function getData(dataLimit,click) {
         
         </div>   
       `;
-        container.appendChild(div);
-      });
-      toggleSpinner(false);
-    };
+    container.appendChild(div);
+  });
+  toggleSpinner(false);
+};
+let flag = false;
+// show all data 
+document.getElementById('see-more-btn').addEventListener('click', function () {
+
+  toggleSpinner(true);
+
+  if (flag == true) {
+    // async function for lazy load 
+    setTimeout(function () {
+      getData(0, true)
+    }, 200);
+
+  }
+  else {
+    // async function for lazy load 
+    setTimeout(function () {
+      getData(0, false)
+    }, 200);
+
+  }
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const toggleSpinner = isLoading => {
+  const loaderSection = document.getElementById('loader');
+  if (isLoading) {
+    loaderSection.classList.remove('d-none')
+  }
+  else {
+    loaderSection.classList.add('d-none');
+  }
+}
+getData(6);
