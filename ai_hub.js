@@ -89,7 +89,21 @@ document.getElementById('see-more-btn').addEventListener('click', function () {
 })
 
 
-
+    // sort data here 
+    document.getElementById('sort-btn').addEventListener('click', function(e){
+      flag=true;
+       getData(6,true); 
+      })
+ 
+     //  show details in modal 
+     const loadDetails = async id =>{
+       const url =`https://openapi.programming-hero.com/api/ai/tool/${id}`;
+       const res = await fetch(url);
+       const data = await res.json();
+       displayDetails(data)
+       // console.log(data);
+   }
+   
 
 
 
@@ -165,7 +179,7 @@ else{
 </div>
   `;
   card2Title.innerText=`${data.data.input_output_examples != null ? data.data.input_output_examples[0].input: 'Can you give any example?'}`;
-  cardText.innerText=`${data.data.input_output_examples != null ? data.data.input_output_examples[0].output : 'No! Not Yet! Take a break!!!' }`
+  cardText.innerText=`${data.data.input_output_examples != null ? data.data.input_output_examples[0].output : 'No!Not Yet!Take a break!!!' }`
  
 }
 
